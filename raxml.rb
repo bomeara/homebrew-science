@@ -16,10 +16,10 @@ class Raxml < Formula
     sha256 "c9ee28f10415e58cfe33d7cfe4e03bef934ab81fd6482578fadd925271ff2d75" => :x86_64_linux
   end
 
-  depends_on :fortran
+  depends_on "gcc"
 
   # Won't build on OS X - relies on Linux-specific threading APIs
-  depends_on :mpi => [:cc, :optional] if OS.linux?
+  depends_on "open-mpi" => [:cc, :optional] if OS.linux?
   needs :openmp if build.with? "mpi"
 
   def make_clean(makefile)
