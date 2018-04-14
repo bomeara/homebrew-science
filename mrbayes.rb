@@ -19,7 +19,7 @@ class Mrbayes < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :mpi => [:cc, :optional]
+  depends_on "open-mpi" => [:cc, :optional]
   depends_on "beagle" => :optional
 
   def install
