@@ -17,7 +17,7 @@ class Hyphy < Formula
 
   depends_on "openssl"
   depends_on "cmake" => :build
-  depends_on mpi: :optional
+  depends_on "open-mpi": :optional
 
   fails_with :clang do
     build 77
@@ -55,8 +55,8 @@ index 76228a8..ee4bb80 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -299,6 +299,23 @@ add_custom_target(MP2 DEPENDS HYPHYMP)
- 
- 
+
+
  #-------------------------------------------------------------------------------
 +# hyphy sp target
 +#-------------------------------------------------------------------------------
@@ -89,16 +89,16 @@ index 76228a8..ee4bb80 100644
  endif(UNIX)
 @@ -557,7 +574,7 @@ set_property(
  )
- 
+
  set_property(
 -    TARGET hyphy_mp HYPHYMP HYPHYGTEST HYPHYDEBUG
 +    TARGET hyphy_mp HYPHYMP HYPHYGTEST HYPHYDEBUG HYPHYSP
      APPEND PROPERTY COMPILE_DEFINITIONS _HYPHY_LIBDIRECTORY_="${CMAKE_INSTALL_PREFIX}/lib/hyphy"
  )
- 
+
 @@ -567,6 +584,13 @@ set_property(
  )
- 
+
  set_target_properties(
 +    HYPHYSP
 +    PROPERTIES
@@ -110,4 +110,3 @@ index 76228a8..ee4bb80 100644
      hyphy_mp HYPHYMP
      PROPERTIES
      COMPILE_FLAGS "${DEFAULT_COMPILE_FLAGS} ${OpenMP_CXX_FLAGS}"
-
