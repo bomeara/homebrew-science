@@ -17,7 +17,7 @@ class Hyphy < Formula
 
   depends_on "openssl"
   depends_on "cmake" => :build
-  depends_on "open-mpi": :optional
+  depends_on "open-mpi" => :optional
 
   fails_with :clang do
     build 77
