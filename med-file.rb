@@ -18,9 +18,9 @@ class MedFile < Formula
   option "with-docs",      "Install documentation"
 
   depends_on "cmake"  => :build
-  depends_on :python  => :recommended
+  depends_on "python@2"  => :recommended
   depends_on "swig"   => :build if build.with? "python"
-  depends_on :fortran => :build if build.with? "fortran"
+  depends_on "gcc" => :build if build.with? "fortran"
   depends_on "hdf5"
 
   patch do
@@ -53,7 +53,7 @@ class MedFile < Formula
 
   test do
     assert_match "Nombre de parametre incorrect : medimport filein [fileout]", shell_output("#{bin}/medimport 2>&1", 255)
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <med.h>
       int main() {
         med_int major, minor, release;

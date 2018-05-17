@@ -18,7 +18,7 @@ class Einspline < Formula
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
-  depends_on :fortran
+  depends_on "gcc"
   depends_on CudaRequirement => :optional
 
   needs :openmp if build.with? "openmp"
@@ -56,7 +56,7 @@ class Einspline < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Spline evaluation functions have been inlined.
     Do not forget to compile your code with
     -O, -O2 or -O3.
@@ -64,7 +64,7 @@ class Einspline < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "einspline/bspline.h"
       #include <stdio.h>
 

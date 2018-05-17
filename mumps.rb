@@ -11,7 +11,7 @@ class Mumps < Formula
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   depends_on "openblas" => OS.mac? ? :optional : :recommended
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
-  depends_on :fortran
+  depends_on "gcc"
 
   if build.with? "mpi"
     if OS.mac?
@@ -166,13 +166,13 @@ class Mumps < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       MUMPS was built with shared libraries. If required,
       static libraries are available in
         #{opt_libexec}/lib
     EOS
     if build.without? "mpi"
-      s += <<-EOS.undent
+      s += <<~EOS
       You built a sequential MUMPS library.
       Please add #{libexec}/include to the include path
       when building software that depends on MUMPS.

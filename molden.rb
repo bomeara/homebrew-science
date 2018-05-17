@@ -15,14 +15,14 @@ class Molden < Formula
   end
 
   depends_on :x11
-  depends_on :fortran
+  depends_on "gcc"
 
   def install
     system "make"
     bin.install "molden", "gmolden"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Two versions of Molden were installed:
       - gmolden is the full OpenGL version
       - molden is the Xwindows version

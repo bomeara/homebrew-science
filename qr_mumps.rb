@@ -14,7 +14,7 @@ class QrMumps < Formula
 
   option "without-test", "Skip build-time tests (not recommended)"
 
-  depends_on :fortran
+  depends_on "gcc"
 
   depends_on "metis4" => :recommended
   depends_on "scotch5" => :optional
@@ -93,7 +93,7 @@ class QrMumps < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Fortran modules were installed to
       "#{libexec}/modules"
     EOS

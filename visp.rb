@@ -58,7 +58,7 @@ class Visp < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <visp3/core/vpConfig.h>
       #include <iostream>
       int main()

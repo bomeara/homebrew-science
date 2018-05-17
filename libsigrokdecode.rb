@@ -69,7 +69,7 @@ class Libsigrokdecode < Formula
   depends_on "glibmm"
   depends_on :java
   depends_on "libzip"
-  depends_on :python3
+  depends_on "python"
   depends_on "check"    => :optional
   depends_on "libftdi0" => :optional
   depends_on "libusb"   => :optional
@@ -133,7 +133,7 @@ class Libsigrokdecode < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libsigrokdecode/libsigrokdecode.h>
       int main() {
         if (srd_init(NULL) != SRD_OK || srd_exit() != SRD_OK)

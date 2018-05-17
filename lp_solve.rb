@@ -11,7 +11,7 @@ class NumpyHasHeaders < Requirement
     true
   end
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
     lp_solve requires NumPy headers not provided by Apple.
     Install numpy via the Homebrew/python formula:
       `brew tap homebrew/python && brew install numpy`
@@ -30,7 +30,7 @@ class LpSolve < Formula
     sha256 "40e0fb01f795a4e7583802dadd04c8c08fdbe4fe776ea5602a78997fc2575065" => :x86_64_linux
   end
 
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
   depends_on NumpyHasHeaders.new if build.with? "python"
 
   resource "lp_solve_python" do
@@ -128,7 +128,7 @@ class LpSolve < Formula
       "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
     end
 
-    def caveats; <<-EOS.undent
+    def caveats; <<~EOS
       For non-homebrew Python, you need to amend your PYTHONPATH like so:
         export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages:$PYTHONPATH
 
@@ -138,7 +138,7 @@ class LpSolve < Formula
   end
 
   test do
-    input = <<-EOS.undent
+    input = <<~EOS
       max: 143 x + 60 y;
 
       120 x + 210 y <= 15000;

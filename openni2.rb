@@ -18,7 +18,7 @@ class Openni2 < Formula
   option "with-docs", "Build documentation using javadoc (might fail with Java 1.8)"
   option "with-samples", "Install Samples"
 
-  depends_on :python
+  depends_on "python@2"
   depends_on :java
   depends_on "libusb"
   depends_on "doxygen" => :build if build.with? "docs"
@@ -45,7 +45,7 @@ class Openni2 < Formula
     doc.install "Documentation" if build.with? "docs"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the recommended variables to your dotfiles.
      * On Bash, add them to `~/.bash_profile`.
      * On Zsh, add them to `~/.zprofile` instead.

@@ -14,7 +14,7 @@ class EtsfIo < Formula
   if OS.mac?
     depends_on "gcc@5"
   else
-    depends_on :fortran
+    depends_on "gcc"
   end
   depends_on "netcdf" => "with-fortran"
 

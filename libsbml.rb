@@ -29,7 +29,7 @@ class Libsbml < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
   depends_on "libxml2" unless OS.mac?
 
   # fix ruby's sitelib dir
@@ -65,7 +65,7 @@ class Libsbml < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <sbml/SBMLTypes.h>
       int main() {
         SBMLDocument_t *d = SBMLDocument_createWithLevelAndVersion(3, 2);

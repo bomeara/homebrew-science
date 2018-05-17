@@ -13,9 +13,9 @@ class Xraylib < Formula
   option "with-perl", "Build with perl support"
   option "with-ruby", "Build with ruby support"
 
-  depends_on :fortran => :recommended
-  depends_on :python => :recommended
-  depends_on :python3 => :optional
+  depends_on "gcc" => :recommended
+  depends_on "python@2" => :recommended
+  depends_on "python" => :optional
   depends_on "lua" => :optional
   depends_on "fpc" => :optional
 
@@ -106,7 +106,7 @@ class Xraylib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <xraylib.h>
 
       int main()

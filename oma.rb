@@ -27,7 +27,7 @@ class Oma < Formula
     File.exist?("parameters.drw")
     inreplace "parameters.drw", "DoGroupFunctionPrediction := true", "DoGroupFunctionPrediction := false"
     mkdir_p "DB"
-    (testpath/"DB/genome1.fa").write <<-EOS.undent
+    (testpath/"DB/genome1.fa").write <<~EOS
       >s1_1
       MEDSQSDMSIELPLSQETFSCLWKLLPPDDILPTTATGSPNSMEDLFLPQDVAELLEGPEEALQVSAPA
       >s1_2
@@ -35,7 +35,7 @@ class Oma < Formula
       >s1_3
       MQLLGRVICFVVGILLSGGPTGTISAVDPEANMNVTEIIMHWGYPGE
     EOS
-    (testpath/"DB/genome2.fa").write <<-EOS.undent
+    (testpath/"DB/genome2.fa").write <<~EOS
       >s2_1
       MTAMEESQSDISLELPLSQETFSGLWKLLPPEDILPSPHCMDDLLLPQDVEEFFEGPSEALRVSGAPAAQDPVT
       >s2_2

@@ -21,8 +21,8 @@ class Nest < Formula
   depends_on :mpi => [:optional, :cc, :cxx]
 
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
-  depends_on :python unless OS.mac?
-  depends_on :python3 => :optional
+  depends_on "python@2" unless OS.mac?
+  depends_on "python" => :optional
 
   requires_py3 = []
   requires_py3 << "with-python3" if build.with? "python3"
@@ -45,7 +45,7 @@ class Nest < Formula
   end
 
   fails_with :clang do
-    cause <<-EOS.undent
+    cause <<~EOS
       Building NEST with clang is not stable. See https://github.com/nest/nest-simulator/issues/74 .
     EOS
   end

@@ -11,7 +11,7 @@ class Cgns < Formula
     sha256 "9fcd6ee301f553ff0b4c174eda6de21593f991f9f8ecd22152b377a5b5a85a42" => :x86_64_linux
   end
 
-  depends_on :fortran => :optional
+  depends_on "gcc" => :optional
   depends_on "cmake" => :build
   depends_on "hdf5" => :recommended
   depends_on "szip"
@@ -40,7 +40,7 @@ class Cgns < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "cgnslib.h"
       int main(int argc, char *argv[])

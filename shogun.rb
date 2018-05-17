@@ -32,7 +32,7 @@ class Shogun < Formula
   depends_on "octave" => :optional
   depends_on "opencv" => :optional
   depends_on :java => :optional
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
 
   if build.with? "python"
     include Language::Python::Virtualenv

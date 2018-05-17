@@ -18,7 +18,7 @@ class Getdp < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "cmake" => :build
-  depends_on :fortran
+  depends_on "gcc"
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   if build.with? "mpi"
     depends_on "arpack" => [:recommended, "with-mpi"]

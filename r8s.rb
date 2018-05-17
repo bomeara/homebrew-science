@@ -15,7 +15,7 @@ class R8s < Formula
     sha256 "12765e243211314bcc0e5f8eed2757aa9ae8990b6fb778e3f494060471c59d00" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc"
 
   def install
     # Tell r8s where libgfortran is located
@@ -29,7 +29,7 @@ class R8s < Formula
     pkgshare.install Dir["SAMPLE_*", "*.pdf"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The manual and example files were installed to
       #{opt_prefix}/share/r8s
     EOS

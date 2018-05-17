@@ -30,7 +30,7 @@ class CudaRequirement < Requirement
     else
       s = "CUDA is required."
     end
-    s += <<-EOS.undent
+    s += <<~EOS
       To use this formula with NVIDIA graphics cards you will need to
       download and install the CUDA drivers and tools from nvidia.com.
 

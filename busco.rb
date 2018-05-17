@@ -15,7 +15,7 @@ class Busco < Formula
     sha256 "1f0f9d7ae6d7650fc307bef6b1520c87e1d7c3d839a508e021bba6e5c75cad3d" => :x86_64_linux
   end
 
-  depends_on :python
+  depends_on "python@2"
   depends_on "augustus" => :recommended
   depends_on "blast" => :recommended
   depends_on "emboss" => :recommended

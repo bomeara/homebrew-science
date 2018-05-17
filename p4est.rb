@@ -15,7 +15,7 @@ class P4est < Formula
   option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on :mpi => [:cc, :cxx, :f77, :f90]
-  depends_on :fortran
+  depends_on "gcc"
   depends_on "openblas" => :optional
 
   def install

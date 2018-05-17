@@ -18,7 +18,7 @@ class Lis < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" => :recommended
   depends_on :mpi => [:cc, :cxx, :f77, :f90, :recommended]
 
   def install

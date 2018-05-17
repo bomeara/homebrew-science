@@ -15,7 +15,7 @@ class Pastix < Formula
   depends_on "openblas" => :optional     # Use Accelerate by default.
 
   depends_on :mpi       => [:cc, :cxx, :f90]
-  depends_on :fortran
+  depends_on "gcc"
   depends_on "gcc"
 
   def install

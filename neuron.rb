@@ -28,8 +28,8 @@ class Neuron < Formula
   # Dependencies of the simulator itself
   depends_on "inter-views" => :optional
   depends_on :mpi => :optional
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
 
   # NEURON uses .la files to compile HOC files at runtime
   skip_clean :la
@@ -106,7 +106,7 @@ class Neuron < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     NEURON recommends that you set an X11 option that raises the window
     under the mouse cursor on mouseover. If you don't set this option,
     NEURON's GUI will still work, but you will have to click in each window

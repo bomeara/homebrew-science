@@ -26,7 +26,7 @@ class Blast < Formula
   depends_on "lzo" => :optional
   depends_on :mysql => :optional
   depends_on "pcre" => :recommended
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   patch do
     # Fixed upstream in future version > 2.6
@@ -74,7 +74,7 @@ class Blast < Formula
     libexec.install include
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Using the option "--with-static" will create static binaries instead of
     dynamic. The NCBI Blast static installation is approximately 7 times larger
     than the dynamic.

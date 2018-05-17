@@ -26,7 +26,7 @@ class GraphTool < Formula
   # Yosemite build fails with Boost >=1.64.0 due to thread-local storage error
   depends_on :macos => :el_capitan
 
-  depends_on :python3 => :optional
+  depends_on "python" => :optional
   with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   depends_on "pkg-config" => :build
@@ -98,7 +98,7 @@ class GraphTool < Formula
   end
 
   test do
-    Pathname("test.py").write <<-EOS.undent
+    Pathname("test.py").write <<~EOS
       import graph_tool.all as gt
       g = gt.Graph()
       v1 = g.add_vertex()

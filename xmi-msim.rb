@@ -12,7 +12,7 @@ class XmiMsim < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :fortran
+  depends_on "gcc"
   depends_on "gsl"
   depends_on "fgsl"
   depends_on "libxml2"

@@ -17,7 +17,7 @@ class Madlib < Formula
   depends_on "boost-python@1.59" => boost_opts if build.with? "python"
   depends_on "cmake" => :build
   depends_on "postgresql" => ["with-python"]
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
 
   resource "pyxb" do
     url "https://downloads.sourceforge.net/project/pyxb/pyxb/1.2.4/PyXB-1.2.4.tar.gz"
@@ -66,7 +66,7 @@ class Madlib < Formula
     bin.write_exec_script("#{prefix}/Current/bin/madpack")
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     MADlib must be rebuilt if you upgrade PostgreSQL:
 
       brew reinstall madlib

@@ -16,8 +16,8 @@ class Anvio < Formula
   # doi "10.7717/peerj.1319"
   # tag "bioinformatics"
 
-  depends_on :python3
-  depends_on :fortran
+  depends_on "python"
+  depends_on "gcc"
   depends_on "prodigal"
   depends_on "hmmer"
   depends_on "sqlite"

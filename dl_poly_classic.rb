@@ -9,7 +9,7 @@ class DlPolyClassic < Formula
 
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
-  depends_on :fortran
+  depends_on "gcc"
   depends_on :mpi => :f90
 
   resource "test1" do

@@ -15,7 +15,7 @@ class Zoltan < Formula
 
   depends_on "scotch"   => :optional
   depends_on "parmetis" => :optional
-  depends_on :fortran   => :optional
+  depends_on "gcc"   => :optional
 
   mpilang = [:cc, :cxx]
   mpilang << :f90 if build.with? :fortran
@@ -39,7 +39,7 @@ class Zoltan < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To link against Zoltan, add
       #{opt_include}
     to the search path for includes and
@@ -49,7 +49,7 @@ class Zoltan < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "zoltan.h"
       int main(int argc, char *argv[])

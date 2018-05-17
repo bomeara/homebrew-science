@@ -14,7 +14,7 @@ class Tisean < Formula
 
   option "without-prefixed-binaries", "Do not prefix binaries with `tisean-`"
 
-  depends_on :fortran
+  depends_on "gcc"
   depends_on "gnu-sed"
 
   BINS = ["poincare", "extrema", "rescale", "recurr", "corr", "mutual",
@@ -45,7 +45,7 @@ class Tisean < Formula
   end
 
   def caveats
-    if build.with? "prefixed-binaries" then <<-EOS.undent
+    if build.with? "prefixed-binaries" then <<~EOS
       By default, all TISEAN binaries are prefixed with `tisean-`.
       For unprefixed binaries, use `--without-prefixed-binaries`.
       EOS
