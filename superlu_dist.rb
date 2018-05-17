@@ -13,7 +13,7 @@ class SuperluDist < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc"
-  depends_on :mpi => [:cc, :f77, :f90]
+  depends_on "open-mpi" => [:cc, :f77, :f90]
 
   depends_on "parmetis"
   depends_on "openblas" => OS.mac? ? :optional : :recommended

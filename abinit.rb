@@ -20,7 +20,7 @@ class Abinit < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  depends_on :mpi => [:cc, :cxx, :f77, :f90]
+  depends_on "open-mpi" => [:cc, :cxx, :f77, :f90]
   depends_on "gcc"
   depends_on "fftw" => ["with-mpi", "with-fortran", :recommended]
   depends_on "netcdf" => :recommended

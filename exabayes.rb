@@ -11,7 +11,7 @@ class Exabayes < Formula
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
-  depends_on :mpi => [:cc, :cxx, :recommended]
+  depends_on "open-mpi" => [:cc, :cxx, :recommended]
 
   def install
     args = %W[--disable-dependency-tracking --disable-silent-rules --prefix=#{prefix}]

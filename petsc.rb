@@ -17,7 +17,7 @@ class Petsc < Formula
   deprecated_option "complex" => "with-complex"
   deprecated_option "debug"   => "with-debug"
 
-  depends_on :mpi => [:cc, :cxx, :f77, :f90]
+  depends_on "open-mpi" => [:cc, :cxx, :f77, :f90]
   depends_on "gcc"
   depends_on :x11 => :optional
   depends_on "cmake" => :build

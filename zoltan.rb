@@ -19,7 +19,7 @@ class Zoltan < Formula
 
   mpilang = [:cc, :cxx]
   mpilang << :f90 if build.with? :fortran
-  depends_on :mpi => mpilang
+  depends_on "open-mpi" => mpilang
 
   def install
     args = [

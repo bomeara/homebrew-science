@@ -27,7 +27,7 @@ class Neuron < Formula
 
   # Dependencies of the simulator itself
   depends_on "inter-views" => :optional
-  depends_on :mpi => :optional
+  depends_on "open-mpi" => :optional
   depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "python" => :optional
 

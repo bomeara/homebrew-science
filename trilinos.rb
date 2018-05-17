@@ -22,7 +22,7 @@ class Trilinos < Formula
   # https://github.com/trilinos/Trilinos/issues/565
   option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
 
-  depends_on :mpi           => [:cc, :cxx, :recommended]
+  depends_on "open-mpi"           => [:cc, :cxx, :recommended]
   depends_on "gcc"       => :recommended
   depends_on :x11           => :recommended
   depends_on "python@2"        => :recommended if MacOS.version <= :snow_leopard

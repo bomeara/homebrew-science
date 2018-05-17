@@ -28,7 +28,7 @@ class KentTools < Formula
     args << "PNGLIB=-L#{libpng.opt_lib} -lpng -lz"
     args << "PNGINCL=-I#{libpng.opt_include}"
 
-    # On Linux, depends_on :mysql looks at system MySQL so check if Homebrew
+    # On Linux, depends_on "mysql" looks at system MySQL so check if Homebrew
     # MySQL already exists. If it does, then link against that. Otherwise, let
     # kent-tools link against system MySQL (see kent/src/inc/common.mk)
     if mysql.installed?

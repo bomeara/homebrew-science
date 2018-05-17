@@ -18,7 +18,7 @@ class Nest < Formula
   needs :openmp if build.with? "openmp"
 
   depends_on "gsl" => :recommended
-  depends_on :mpi => [:optional, :cc, :cxx]
+  depends_on "open-mpi" => [:optional, :cc, :cxx]
 
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
   depends_on "python@2" unless OS.mac?
